@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "weather-project"
+version = "1.0.0"
+description = "OpenWeatherMap synchronization service"
+requires-python = ">=3.12"
+dependencies = [
+    "requests>=2.31",
+    "python-dotenv>=1.0",
+    "supabase",
+    "psycopg[binary]",
+    "fastapi[standard]",
+    "streamlit",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
